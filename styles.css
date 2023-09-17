@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap");
+
 * {
   padding: 0;
   margin: 0;
+  font-family: "Inclusive Sans", sans-serif;
 }
 
 body {
@@ -13,10 +16,10 @@ body {
   justify-content: center;
 }
 
-
-#result{
+#result {
   font-size: 25px;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -24,14 +27,16 @@ body {
   width: 500px;
 }
 
-.main #question{
+.main #question {
   font-size: 90px;
+  font-weight: 100;
 }
 
 .btn-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 100%;
   gap: 10px;
 }
 
@@ -40,10 +45,10 @@ body {
   outline: none;
   border: 2px solid #ffc040;
   background-color: #ffc040;
-  height: 70px;
-  width: 70px;
+  padding: 15px 15px;
   transition: 0.5s ease-in-out;
 }
+
 .btn:hover {
   border-color: #bf9030;
   transform: scale(1.1);
