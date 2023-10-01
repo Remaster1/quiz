@@ -34,11 +34,34 @@ function startProgram() {
 
 function generateQuestion() {
   let question = questions[currentQuestion].question;
-  main.innerHTML = `<h1 id="question">${question}</h1>`;
+  main.innerHTML = `<h1 id="question" class="py-5" style="font-size:100px">${question}</h1>`;
   let answers = questions[currentQuestion].answers;
   let btn_block = "";
   for (let i of answers) {
-    btn_block += `<button class="btn" onclick="checkQuestion(${i})">${i}</button>`;
+    btn_block += `<button class="btn btn-outline-primary fs-1 text-white" onclick="checkQuestion(${i})">${i}</button>`;
   }
-  main.innerHTML += `<nav class="btn-box">${btn_block}</nav>`;
+  main.innerHTML += `<nav class="d-flex justify-content-between" style="width: 50vw !important">
+  ${btn_block}</nav>`;
+}
+
+function stopQuiz() {
+  start.classList.remove("none")
+  main.classList.add("none")
+  result.classList.remove("none")
+  result.innerHTML = `Решено ${correctCounter} из ${questions.length}`
+
+  currentQuestion = 0
+  correctCounter = 0
+}
+function checkQuestion(ans) {
+  let correct = questions[currentQuestion].correct
+  if (ans == correct) {
+    correctCounter += 1
+  }
+  currentQuestion += 1
+  if (questions.length > currentQuestion) {
+    generateQuestion()
+  } else {
+    stopQuiz()
+  }
 }
